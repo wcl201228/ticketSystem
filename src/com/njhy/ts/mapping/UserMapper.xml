@@ -23,7 +23,7 @@
   
   <!-- 添加用户 -->
   <insert id="insertUser" parameterType="com.njhy.ts.entity.User" >
-  	insert into SYSUSER (UNAME,UPASS) values(#{uname},#{upass})
+  	insert into SYSUSER (UNAME,UPASS,UTYPE) values(#{uname},#{upass},#{utype})
   		
   </insert>
   
