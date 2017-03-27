@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.njhy.ts.dao.IUserDao">
+
+  <!-- 根据ID查找用户 -->
+  <select id="selectById" parameterType="int" resultType="com.njhy.ts.entity.User">
+  	select * from SYSUSER where id = #{id}
+  </select>
+  
+  <!-- 根据ID查找用户 -->
+  <select id="selectUserById" parameterType="int" resultType="User">
+  	select * from SYSUSER where id = #{userId}
+  </select>
+  
+   <!-- 根据登录名和登录密码查找用户 -->
+   <select id="selectUserByLoginNameAndPassword" resultType="User">
+  	select id,UNAME,UPASS,UTYPE
+  	from SYSUSER 
+  	where UNAME=#{loginName} and UPASS=#{password}
+  </select> 
+  
+  <!-- 添加用户 -->
+  <insert id="insertUser" parameterType="com.njhy.ts.entity.User" >
+  	insert into SYSUSER (UNAME,UPASS) values(#{uname},#{upass})
+  		
+  </insert>
+  
+  	<update id="updateUser" parameterType="User">
+  	
+  		update SYSUSER set TNAME=#{tname} where id={#id}
+  	</update>
+  
+  
+</mapper>
+

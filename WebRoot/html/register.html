@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>register.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <script>
+    
+    	$("sub").click(function(){
+    	
+    		$.ajax({
+                type: "post",
+                url: "http://192.168.1.8:8080/ticketSystem/user/register",
+                data: $('#doFrom').serialize(),
+                dataType: 'json',
+                success: function(result) {
+                    if ((result.msg) == "注册成功") {
+                        alert("注册成功！")
+                        location.href = "index.html";
+                    } else {
+                        alert("注册失败！");
+
+                    }
+                }
+            })
+    	})
+    	
+    
+    </script>
+
+  </head>
+  
+  <body>
+  		<form action="">
+  			用户名:  <input type="text" id="username"><br>
+    		密码:  <input type="text" id="username"><br>
+    		<button class="sub">注册</button>
+  		</form>
+    	
+  </body>
+</html>
